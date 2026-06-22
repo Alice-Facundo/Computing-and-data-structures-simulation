@@ -1,75 +1,74 @@
+# Process Scheduling Simulation
 
-# Simulação de Escalonamento de Processos
+This project, developed for the Data Structures course, simulates process scheduling algorithms, specifically FCFS (First-Come, First-Served) and SJF (Shortest Job First). The program reads a list of processes from an input file, distributes them among multiple simulated computers, and calculates performance metrics such as execution time and waiting time.
 
-Este projeto, desenvolvido para a disciplina de Estruturas de Dados, realiza a simulação de algoritmos de escalonamento de processos, especificamente o FCFS (First-Come, First-Served) e o SJF (Shortest Job First). O programa lê uma lista de processos de um arquivo de entrada, os distribui entre múltiplos computadores simulados e calcula métricas de desempenho como tempo de execução e tempo de espera.
+## Data Structures Used
 
-## Estruturas de Dados Utilizadas
+The scheduling policies were implemented using the following data structures:
 
-As políticas de escalonamento foram implementadas utilizando as seguintes estruturas de dados:
+  * **FCFS (First-Come, First-Served):** Implemented with a queue structure (FIFO - First-In, First-Out), where the first process to arrive is the first to be executed. The queue was built using a singly linked list.
+  * **SJF (Shortest Job First):** Implemented with a linked list sorted in ascending order based on the CPU execution time (burst time) of each process.
 
-  * **FCFS (First-Come, First-Served):** Implementado com uma estrutura de fila (FIFO - First-In, First-Out), onde o primeiro processo a chegar é o primeiro a ser executado. A fila foi construída usando uma lista encadeada simples.
-  * **SJF (Shortest Job First):** Implementado com uma lista encadeada que é ordenada de forma crescente com base no tempo de duração da CPU de cada processo.
+## Features
 
-## Funcionalidades
+  * **Multiple Computer Simulation:** The user can specify how many computers will be used in the simulation.
+  * **Process Reading:** Processes are read from a `.txt` input file containing information about arrival time and execution times for CPU, disk, and network.
+  * **Load Distribution:** Processes and their disk tasks are randomly distributed among the available computers and their disks.
+  * **Performance Metrics Calculation:** At the end of the simulation, the program displays:
+      * Total and Average Execution Time (Turnaround Time).
+      * Total and Average Waiting Time.
+      * Throughput.
 
-  * **Simulação de Múltiplos Computadores:** O usuário pode especificar quantos computadores serão utilizados na simulação.
-  * **Leitura de Processos:** Os processos são lidos a partir de um arquivo de entrada `.txt`, contendo informações sobre o instante de chegada e os tempos de execução para CPU, disco e rede.
-  * **Distribuição de Carga:** Os processos e suas tarefas de disco são aleatoriamente distribuídos entre os computadores e seus discos disponíveis.
-  * **Cálculo de Métricas de Desempenho:** Ao final da simulação, o programa exibe:
-      * Tempo de Execução Total e Médio.
-      * Tempo de Espera Total e Médio.
-      * Taxa de Processamento (throughput).
+## Project Structure
 
-## Estrutura do Projeto
+The project is organized into the following main files:
 
-O projeto está organizado nos seguintes arquivos principais:
+  * `main.cpp`: Contains the main simulation logic, file reading, and user interaction.
+  * `FCFS.h` / `FCFS.cpp`: Implementation of the Queue (FIFO) data structure.
+  * `SJF.h` / `SJF.cpp`: Implementation of the Linked List data structure, with a sorting function for the SJF policy.
+  * `NeoLook.h` / `NeoLook.cpp`: Contains the classes that model the simulation components, such as `Process`, `CPU`, `Disk`, and `Computer`.
+  * `Node.h`: Node structure used as the basis for the linked lists.
 
-  * `main.cpp`: Contém a lógica principal da simulação, leitura de arquivos e interação com o usuário.
-  * `FCFS.h` / `FCFS.cpp`: Implementação da estrutura de dados de Fila (FIFO).
-  * `SJF.h` / `SJF.cpp`: Implementação da estrutura de dados de Lista Encadeada, com função de ordenação para a política SJF.
-  * `NeoLook.h` / `NeoLook.cpp`: Contém as classes que modelam os componentes da simulação, como `Processo`, `CPU`, `Disk` e `Computador`.
-  * `Node.h`: Estrutura de nó utilizada como base para as listas encadeadas.
+## How to Compile and Run
 
-## Como Compilar e Executar
+To compile and run the project, follow the steps below.
 
-Para compilar e executar o projeto, siga os passos abaixo.
+### Prerequisites
 
-### Pré-requisitos
+  * A C++ compiler (such as g++).
 
-  * Um compilador C++ (como o g++).
+### Compilation
 
-### Compilação
+1.  Open a terminal in the project's root folder.
 
-1.  Abra um terminal na pasta raiz do projeto.
-
-2.  Execute o seguinte comando para compilar todos os arquivos `.cpp` e gerar um executável chamado `main.exe`:
+2.  Run the following command to compile all `.cpp` files and generate an executable named `main.exe`:
 
     ```bash
     g++ -std=c++11 *.cpp -o main.exe
     ```
 
-### Execução
+### Execution
 
-1.  Após a compilação, execute o programa utilizando o seguinte comando:
-
-    ```bash
-    ./main.exe <estrutura> <arquivo_de_entrada.txt>
-    ```
-
-    **Argumentos:**
-
-      * `<estrutura>`: O algoritmo de escalonamento a ser utilizado. Pode ser `FCFS` ou `SJF`.
-      * `<arquivo_de_entrada.txt>`: O nome do arquivo de texto contendo a lista de processos.
-
-    **Exemplo de uso:**
+1.  After compiling, run the program using the following command:
 
     ```bash
-    ./main.exe SJF arquivo_de_entrada_1.txt
+    ./main.exe <structure> <input_file.txt>
     ```
 
-2.  O programa solicitará que você informe o número de computadores a serem utilizados na simulação. Digite o número desejado e pressione Enter.
+    **Arguments:**
 
-## Autoras
+      * `<structure>`: The scheduling algorithm to be used. Can be `FCFS` or `SJF`.
+      * `<input_file.txt>`: The name of the text file containing the list of processes.
+
+    **Usage Example:**
+
+    ```bash
+    ./main.exe SJF input_file_1.txt
+    ```
+
+2.  The program will prompt you to enter the number of computers to be used in the simulation. Enter the desired number and press Enter.
+
+## Authors
 
   * **Maria Alice Angelim Facundo**
   * **Yasmin Lima Costa**
